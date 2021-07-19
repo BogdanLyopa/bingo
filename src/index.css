@@ -1,0 +1,317 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  margin-top: auto;
+  width: 100%;
+  max-width: 640px;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.cat-appear {
+  transform: translateY(100%);
+}
+
+.cat-appear-active {
+  transform: translateY(0);
+  transition: transform 250ms linear 250ms;
+}
+.cat-enter {
+  transform: translateY(100%);
+}
+
+.cat-enter-active {
+  transform: translateY(0);
+  transition: transform 250ms linear 250ms;
+}
+.cat-exit-active {
+  transform: translateY(100%);
+}
+
+.cat-exit {
+  transform: translateY(0);
+  transition: transform 250ms linear;
+}
+
+.item:last-child {
+  margin-right: 0;
+}
+
+.cover-button {
+  border-radius: 70% 70% 0 0 / 160% 160% 0 0;
+}
+
+.open-enter {
+  transform: translateY(0);
+}
+.open-enter-active {
+  transform: translateY(20%);
+  transition: transform 500ms linear;
+}
+
+.open-exit {
+  transform: translateY(0) translateX(0);
+}
+.open-exit-active {
+  transform: translateY(-100%) translateX(100%) rotate(95deg);
+
+  transition: all 500ms linear;
+}
+
+.fail {
+  position: absolute;
+  z-index: 3;
+  top: 10%;
+  width: 100%;
+}
+.over-appear {
+  opacity: 0;
+  transform: scale(3);
+}
+@keyframes overstamp {
+  0% {
+    opacity: 0;
+    transform: scale(3);
+  }
+  50% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+  75% {
+    opacity: 1;
+
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+.over-appear-active {
+  animation: overstamp 250ms linear 250ms;
+}
+.game-exit {
+  opacity: 1;
+}
+
+.game-exit-active {
+  opacity: 0;
+  transition: opacity 250ms linear 1000ms;
+}
+
+.logo {
+  grid-area: logo;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.play {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  border: none;
+  animation: pulse 1000ms infinite linear;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.second-screen-appear {
+  opacity: 0;
+}
+
+.second-screen-appear-active {
+  opacity: 1;
+  transition: opacity 500ms linear 1000ms;
+}
+.second-screen-enter {
+  opacity: 0;
+}
+
+.second-screen-enter-active {
+  opacity: 1;
+  transition: opacity 500ms linear 1000ms;
+}
+.second-screen-exit {
+  opacity: 1;
+}
+
+.second-screen-exit-active {
+  opacity: 0;
+  transition: opacity 500ms linear;
+}
+
+.game {
+  height: 100vh;
+  max-height: 960px;
+  position: relative;
+}
+
+.blitz {
+  z-index: 1;
+  position: relative;
+}
+
+.arm {
+  position: absolute;
+  right: 61%;
+  top: 4%;
+  animation: rotateWithOrigin 1000ms infinite;
+  transform-origin: bottom right;
+}
+@keyframes rotateWithOrigin {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  50% {
+    transform: rotate3d(0, 0, 1, 10deg);
+  }
+
+  100% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+.white {
+  position: absolute;
+  bottom: 130px;
+  right: 0;
+}
+.white {
+  max-width: 250px;
+}
+
+.arm2 {
+  position: absolute;
+  top: 40px;
+  right: -62px;
+}
+
+.items {
+  display: flex;
+}
+
+.first-screen {
+  background-image: url(./images/kitchen.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cat {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 180px;
+}
+
+@media (min-width: 370px) {
+  .cat {
+    bottom: -15%;
+    right: -5%;
+  }
+}
+
+@media (min-width: 500px) {
+  .cat {
+    width: 250px;
+  }
+}
+
+.logo {
+  position: absolute;
+  width: 150px;
+  left: 0;
+  right: 0;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+
+  position: absolute;
+  bottom: 37%;
+}
+.item {
+  z-index: 1;
+  width: calc((100% / 2) - 25px);
+  position: relative;
+}
+.item:first-child {
+  grid-area: item1;
+  margin-right: 50px;
+  margin-bottom: 5%;
+}
+.item:nth-child(2n) {
+  grid-area: item2;
+  margin-right: 0;
+  margin-bottom: 5%;
+}
+.item:last-child {
+  width: calc(100% / 2);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cover-button {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  bottom: 15%;
+  left: 5%;
+  width: 90%;
+  z-index: 3;
+}
+
+.fruit {
+  width: 60%;
+  position: absolute;
+
+  left: 20%;
+  bottom: 30%;
+}
+
+.table {
+  position: absolute;
+  width: 100%;
+  bottom: -10%;
+  height: auto;
+}
+
+.copyright {
+  position: absolute;
+  bottom: -1%;
+  z-index: 2;
+}
